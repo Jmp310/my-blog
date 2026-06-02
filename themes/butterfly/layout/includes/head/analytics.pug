@@ -43,3 +43,4 @@ if (theme.google_tag_manager && theme.google_tag_manager.tag_id)
     btf.addGlobalFn('pjaxComplete', () => {
       dataLayer.push({'event': 'pjaxComplete', 'page_title': document.title, 'page_location': location.href, 'page_path': window.location.pathname})
     }, 'google_tag_manager')
+    

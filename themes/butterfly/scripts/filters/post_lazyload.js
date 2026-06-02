@@ -11,7 +11,7 @@ const urlFor = require('hexo-util').url_for.bind(hexo)
 const lazyload = htmlContent => {
   if (hexo.theme.config.lazyload.native) {
     // 彻底删除了 ，改用普通的空格或字符匹配，绝对不会再有 BS 报错！
-    return htmlContent.replace(/(<img(?![^>]*?loading=)(?:\s[^>]*?)?>)(?![^<]*</script>)/gi, match => {
+    return htmlContent.replace(/(<img(?![^>]*?loading=)(?:\s[^>]*?)?>)(?![^<]*<\/script>)/gi, match => {
       return match.replace(/>$/, " loading='lazy'>")
     })
   }
@@ -19,7 +19,7 @@ const lazyload = htmlContent => {
   const bg = hexo.theme.config.lazyload.placeholder ? urlFor(hexo.theme.config.lazyload.placeholder) : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
 
   // 彻底删除了 ，改用普通的空格或字符匹配，绝对不会再有 BS 报错！
-  return htmlContent.replace(/(<img(?![^>]*?data-lazy-src=)(?:\s[^>]*?)?\ssrc=)(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?![^<]*</script>)/gi, (match, prefix, srcDoubleQuote, srcSingleQuote, srcNoQuote) => {
+  return htmlContent.replace(/(<img(?![^>]*?data-lazy-src=)(?:\s[^>]*?)?\ssrc=)(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?![^<]*<\/script>)/gi, (match, prefix, srcDoubleQuote, srcSingleQuote, srcNoQuote) => {
     const src = srcDoubleQuote || srcSingleQuote || srcNoQuote
     return `${prefix}"${bg}" data-lazy-src="${src}"`
   })
