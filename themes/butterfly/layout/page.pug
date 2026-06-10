@@ -5,7 +5,7 @@ block content
   - var commentsJsLoad = false
 
   mixin commentLoad
-    if page.comments !== false && theme.comments.use
+    if page.comments !== false && theme.comments.use && theme.comments.page !== false
       - commentsJsLoad = true
       !=partial('includes/third-party/comments/index', {}, {cache: true})
 

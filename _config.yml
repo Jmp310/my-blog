@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://blog.ifdo.de5.net
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -92,6 +92,7 @@ pagination_dir: page
 include:
 exclude:
 ignore:
+  - "**/themes/butterfly/.git_disabled/**"
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
